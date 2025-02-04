@@ -41,3 +41,11 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+# If you are using RBAC in you cluster, consider setting this to true
+# Grant the webhook permission to read secrets in the cert-manager namespace.
+# This is required and must be uncommented if you are using a ClusterIssuer
+# instead of a Issuer, and you have not changed the cluster resource location
+# for cert-manager.
+rbac:
+  allowWebhookToReadSecrets: false
