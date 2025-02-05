@@ -128,7 +128,7 @@ subjects:
 # This is required and must be uncommented if you are using a ClusterIssuer
 # instead of a Issuer, and you have not changed the cluster resource location
 # for cert-manager.
-{{- if .Values.rbac.allowWebhookToReadSecrets }}
+{{- if and (hasKey .Values "rbac") (.Values.rbac.allowWebhookToReadSecrets | default false) }}
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
